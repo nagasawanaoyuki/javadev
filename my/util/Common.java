@@ -54,6 +54,32 @@ public class Common{
 			}
 		}
 	}
+	public static void selectionSort(int[] arr){
+		for(int i=0;i<arr.length-1;i++){
+			int index=i;
+			for(int j=i+1;j<arr.length;j++){
+				if(arr[index]>arr[j]){
+					index=j;
+				}
+			}
+			if(index != i){
+				int temp=arr[i];
+				arr[i]=arr[index];
+				arr[index]=temp;
+			}
+		}
+	}
+	public static void insertionSort(int[] arr){
+		for(int i=1;i<arr.length;i++){
+			int pick=arr[i];
+			int j=i-1;
+			while(j>=0 && arr[j]>pick){
+				arr[j+1]=arr[j];
+				j--;
+			}
+			arr[j+1]=pick;
+		}
+	}
 	public static int maxOf(int[] arr){
 		int max=arr[0];
 		for(int i=1;i<arr.length;i++){
@@ -80,4 +106,36 @@ public class Common{
 			return gcd(b,mod);
 		}
 	}
+	public static void print(String msg){
+		System.out.println(msg);
+	}
+	public static void print(int msg){
+		System.out.println(msg);
+	}
+	public static void print(double msg){
+		System.out.println(msg);
+	}
+	public static void print(String msg,String delimiter){
+		System.out.print(msg+delimiter);
+	}
+	public static int input(String msg){
+		print(msg,"");
+		int n=new java.util.Scanner(System.in).nextInt();
+		return n;
+	}
+	public static String inputStr(String msg){
+		print(msg,"");
+		String str=new java.util.Scanner(System.in).next();
+		return str;
+	}
+	public static String inputLine(String msg){
+		print(msg,"");
+		String str=new java.util.Scanner(System.in).nextLine();
+		return str;
+	}
+	public static int rand(int min,int max){
+		Random rand=new Random();
+		return rand.nextInt(max-min+1)+min;
+	}
 }
+
